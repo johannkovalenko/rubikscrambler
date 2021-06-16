@@ -1,0 +1,16 @@
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.exe
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.deps.json
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.runtimeconfig.json
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.runtimeconfig.dev.json
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\ref\DEV.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\bin\Debug\net5.0-windows\DEV.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.csprojAssemblyReference.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.AssemblyInfoInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.AssemblyInfo.cs
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.csproj.CoreCompileInputs.cache
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\ref\DEV.dll
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.pdb
+C:\Users\johan\OneDrive\Dokumente\Programming\C#\rubikscrambler\rubikscrambler\DEV\obj\Debug\net5.0-windows\DEV.genruntimeconfig.cache
