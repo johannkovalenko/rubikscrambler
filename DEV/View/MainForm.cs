@@ -14,7 +14,8 @@ namespace View
     {
         public MainForm()
         {
-            var cubeMove = new Controller.CubeMove();
+            var cube = new View.Cube(this);
+            var cubeMove = new Controller.CubeMove(cube);
             var buttonR = new R_Button();
 
             buttonR.Click += delegate(object sender, EventArgs e) { cubeMove.Run(Direction.R, Mode.Standard); };
@@ -22,7 +23,6 @@ namespace View
             base.Width = 300;
             base.Height = 300;
             base.BackColor = Color.Gray;
-            var cube = new View.Cube(this);
         }
 
     }
