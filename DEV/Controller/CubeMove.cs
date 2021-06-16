@@ -15,10 +15,9 @@ namespace Controller
         {
             List<Model.Field> fields = cube.Run(direction, mode);
 
-            foreach(var field in fields)
-            {
-                viewCube.faces[field.faceName].fields[field.x, field.y].BackColor = field.color;
-            }
+            foreach(Model.Field field in fields)
+                viewCube.Update(field);
+                
         }
     }
 }

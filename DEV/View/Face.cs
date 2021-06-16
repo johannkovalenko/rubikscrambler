@@ -7,12 +7,17 @@ namespace View
     {
         public Field[,] fields = new Field[3,3];
 
-        public Face(Form mainForm, FaceName faceName, int xPos, int yPos, Color initialColor)
+        public Face(Form mainForm, int xPos, int yPos, Color initialColor)
         {
+            int cnt = 0;
             for (int x=0; x<3; x++)
                 for (int y=0; y<3; y++)
                 {
-                    fields[x,y] = new Field(xPos + x * 17, yPos + y * 17, x, y, faceName, initialColor);
+
+                    // if (x == 1 || x == 2)
+                    //     initialColor = Color.Gray; 
+
+                    fields[x,y] = new Field(xPos + y * 17, yPos + x * 17, initialColor, ++cnt);
                     mainForm.Controls.Add(fields[x,y]);
                 }
         }

@@ -4,7 +4,7 @@ namespace Model
 {
     public class Face
     {
-        public Field[,] fields = new Field[3,3];
+        public readonly Field[,] fields = new Field[3,3];
 
         public Face(Color color, FaceName faceName)
         {

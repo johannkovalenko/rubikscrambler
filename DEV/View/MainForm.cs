@@ -12,17 +12,51 @@ namespace View
 {
     public class MainForm : Form
     {
+        private readonly TextBox textBox = new TextBox();
+        private readonly View.Cube cube;
+        private readonly Controller.CubeMove cubeMove;
+
         public MainForm()
         {
-            var cube = new View.Cube(this);
-            var cubeMove = new Controller.CubeMove(cube);
-            var buttonR = new R_Button();
+            cube = new View.Cube(this);
+            cubeMove = new Controller.CubeMove(cube);
 
-            buttonR.Click += delegate(object sender, EventArgs e) { cubeMove.Run(Direction.R, Mode.Standard); };
-            base.Controls.Add(buttonR);
+            TextBox();
+
             base.Width = 300;
             base.Height = 300;
             base.BackColor = Color.Gray;
+        }
+
+        private void TextBox()
+        {
+            this.textBox.Location = new Point(10, 200);
+            this.textBox.KeyDown += delegate(object sender, KeyEventArgs key) { Handler(key); };
+            base.Controls.Add(this.textBox);
+        }
+
+        private void Handler(KeyEventArgs key)
+        {
+            if (key.KeyCode == Keys.Space)
+            {
+                var split = textBox.Text.Split(' ');
+
+                switch (split[split.Length - 1])
+                {
+                    case "R":
+                        cubeMove.Run(Direction.R, Mode.Standard);
+                        break;
+                    case "R'":
+                        cubeMove.Run(Direction.R, Mode.Prime);
+                        break;
+                    case "U":
+                        cubeMove.Run(Direction.U, Mode.Standard);
+                        break;     
+                    case "U'":
+                        cubeMove.Run(Direction.U, Mode.Prime);
+                        break;                    
+                }
+            }
         }
 
     }
