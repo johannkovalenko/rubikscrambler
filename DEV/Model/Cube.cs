@@ -18,6 +18,33 @@ namespace Model
             faces[F.TOP] = new Face(Color.Yellow, F.TOP);
         }
 
+        public List<Field> Run(string direction)
+        {
+            var output = new List<Field>();
+
+            switch (direction)
+            {
+                case "R":
+                    R_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    break;
+                case "R'":
+                    R_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
+                    break;
+                case "U":
+                    U_Mover(output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.TOP]);
+                    break;
+                case "U'":
+                    U_Mover(output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.TOP]);
+                    break;
+            }
+
+            return output;
+        }
+
         public Color ColorCheck(F faceName, int x, int y)
         {
             return faces[faceName].fields[x,y].color;
@@ -35,43 +62,6 @@ namespace Model
             Move(output, face1.fields[0,0], face2.fields[0,0], face3.fields[0,0], face4.fields[0,0]);
             Move(output, face1.fields[0,1], face2.fields[0,1], face3.fields[0,1], face4.fields[0,1]);
             Move(output, face1.fields[0,2], face2.fields[0,2], face3.fields[0,2], face4.fields[0,2]);
-        }
-
-        public List<Field> Run(Direction direction, Mode mode)
-        {
-            var output = new List<Field>();
-
-            switch (direction)
-            {
-                case Direction.R:
-                    switch (mode)
-                    {
-                        case Mode.Standard:
-                            R_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
-                            MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
-                            break;
-                        case Mode.Prime:
-                            R_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
-                            MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
-                            break;
-                    }
-                    break;
-                case Direction.U:
-                    switch (mode)
-                    {
-                        case Mode.Standard:
-                            U_Mover(output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
-                            MoveAllFieldsInTurningFace(output, faces[F.TOP]);
-                            break;
-                        case Mode.Prime:
-                            U_Mover(output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
-                            MoveAllFieldsInTurningFaceCounter(output, faces[F.TOP]);
-                            break;
-                    }
-                    break;
-            }
-
-            return output;
         }
 
         private void MoveAllFieldsInTurningFace(List<Field> output, Face face)

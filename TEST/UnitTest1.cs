@@ -17,16 +17,6 @@ namespace TEST
             { 166,  Color.Yellow }
         };
 
-        // private Dictionary<string, Direction> directionMap = new Dictionary<int, Direction> 
-        // {
-        //     { "R",  Direction.R },
-        //     { "U",  Direction.U },
-        //     { "F",  Direction.F },
-        //     { "L",  Direction.L },
-        //     { "D",  Direction.D },
-        //     { "B",  Direction.B }
-        // };
-
         private Model.Cube cube = new Model.Cube();
 
         [TestMethod]
@@ -40,10 +30,10 @@ namespace TEST
         [TestMethod]
         public void Check_R_U_RPrime_UPrime_Move()
         {
-            cube.Run(Direction.R, Mode.Standard);
-            cube.Run(Direction.U, Mode.Standard);
-            cube.Run(Direction.R, Mode.Prime);
-            cube.Run(Direction.U, Mode.Prime);
+            cube.Run("R");
+            cube.Run("U");
+            cube.Run("R'");
+            cube.Run("U'");
 
             Assert.AreEqual(Color.White, cube.ColorCheck(F.FRONT, 0, 2));
             Assert.AreEqual(Color.Yellow, cube.ColorCheck(F.RIGHT, 2, 0));
