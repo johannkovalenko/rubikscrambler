@@ -31,33 +31,11 @@ namespace View
         private void TextBox()
         {
             this.textBox.Location = new Point(10, 200);
-            this.textBox.KeyDown += delegate(object sender, KeyEventArgs key) { Handler(key); };
+            this.textBox.KeyDown += delegate(object sender, KeyEventArgs key) 
+            { 
+                cubeMove.Run(key.KeyCode, textBox.Text); 
+            };
             base.Controls.Add(this.textBox);
         }
-
-        private void Handler(KeyEventArgs key)
-        {
-            if (key.KeyCode == Keys.Space)
-            {
-                var split = textBox.Text.Split(' ');
-
-                switch (split[split.Length - 1])
-                {
-                    case "R":
-                        cubeMove.Run(Direction.R, Mode.Standard);
-                        break;
-                    case "R'":
-                        cubeMove.Run(Direction.R, Mode.Prime);
-                        break;
-                    case "U":
-                        cubeMove.Run(Direction.U, Mode.Standard);
-                        break;     
-                    case "U'":
-                        cubeMove.Run(Direction.U, Mode.Prime);
-                        break;                    
-                }
-            }
-        }
-
     }
 }
