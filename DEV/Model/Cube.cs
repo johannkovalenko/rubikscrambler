@@ -26,19 +26,19 @@ namespace Model
             switch (direction)
             {
                 case "R":
-                    R_L_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
                     break;
                 case "R'":
-                    R_L_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
                     break;
                 case "L":
-                    R_L_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
                     break;
                 case "L'":
-                    R_L_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
                     break;
                 case "U":
@@ -74,10 +74,10 @@ namespace Model
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BACK]);
                     break;
                 case "M":
-                    M_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     break;
                 case "M'":
-                    M_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     break;
             }
 
@@ -89,13 +89,7 @@ namespace Model
             return faces[faceName].fields[x,y].color;
         }
 
-        private void M_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            for (int x=0; x<3; x++)
-                Move(output, face1.fields[x,1], face2.fields[x,1], face3.fields[2-x,1], face4.fields[x,1]);
-        }
-
-        private void R_L_Mover(int y, List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void R_L_M_Mover(int y, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
             for (int x=0; x<3; x++)
                 Move(output, face1.fields[x,y], face2.fields[x,y], face3.fields[2-x,2-y], face4.fields[x,y]);
