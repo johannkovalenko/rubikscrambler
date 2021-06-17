@@ -1,6 +1,7 @@
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System;
 
 namespace Model
 {
@@ -25,51 +26,51 @@ namespace Model
             switch (direction)
             {
                 case "R":
-                    R_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
                     break;
                 case "R'":
-                    R_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
                     break;
                 case "L":
-                    L_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
                     break;
                 case "L'":
-                    L_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
                     break;
                 case "U":
-                    U_Mover(output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
                     MoveAllFieldsInTurningFace(output, faces[F.TOP]);
                     break;
                 case "U'":
-                    U_Mover(output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_Mover(0, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.TOP]);
                     break;
                 case "D":
-                    D_Mover(output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
                     break;
                 case "D'":
-                    D_Mover(output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BOTTOM]);
                     break;
                 case "F":
-                    F_Mover(output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
                     break;
                 case "F'":
-                    F_MoverPrime(output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    F_B_Mover(-2, 0, 2, 2, 4, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.FRONT]);
                     break;
                 case "B":
-                    B_Mover(output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
                     MoveAllFieldsInTurningFace(output, faces[F.BACK]);
                     break;
                 case "B'":
-                    B_MoverPrime(output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    F_B_Mover(0, -2, 0, 0, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BACK]);
                     break;
             }
@@ -82,60 +83,28 @@ namespace Model
             return faces[faceName].fields[x,y].color;
         }
 
-        private void R_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void R_L_Mover(int y, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
-            Move(output, face1.fields[0,2], face2.fields[0,2], face3.fields[2,0], face4.fields[0,2]);
-            Move(output, face1.fields[1,2], face2.fields[1,2], face3.fields[1,0], face4.fields[1,2]);
-            Move(output, face1.fields[2,2], face2.fields[2,2], face3.fields[0,0], face4.fields[2,2]);
+            for (int x=0; x<3; x++)
+                Move(output, face1.fields[x,y], face2.fields[x,y], face3.fields[2-x,2-y], face4.fields[x,y]);
         }
 
-        private void L_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void U_D_Mover(int x, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
-            Move(output, face1.fields[0,0], face2.fields[0,0], face3.fields[2,2], face4.fields[0,0]);
-            Move(output, face1.fields[1,0], face2.fields[1,0], face3.fields[1,2], face4.fields[1,0]);
-            Move(output, face1.fields[2,0], face2.fields[2,0], face3.fields[0,2], face4.fields[2,0]);
+            for (int y=0; y<3; y++)
+                Move(output, face1.fields[x,y], face2.fields[x,y], face3.fields[x,y], face4.fields[x,y]);
         }
 
-        private void U_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void F_B_Mover(int g, int h, int j, int l, int n, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
-            Move(output, face1.fields[0,0], face2.fields[0,0], face3.fields[0,0], face4.fields[0,0]);
-            Move(output, face1.fields[0,1], face2.fields[0,1], face3.fields[0,1], face4.fields[0,1]);
-            Move(output, face1.fields[0,2], face2.fields[0,2], face3.fields[0,2], face4.fields[0,2]);
+            for (int i=0; i<3; i++)
+                Move(output, face1.fields[j,2-i], face2.fields[Math.Abs(g+i),l-j], face3.fields[2-j,i], face4.fields[Math.Abs(h+i),n-j]);
         }
 
-        private void D_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void B_Mover(int g, int h, int j, int l, int n, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
-            Move(output, face1.fields[2,0], face2.fields[2,0], face3.fields[2,0], face4.fields[2,0]);
-            Move(output, face1.fields[2,1], face2.fields[2,1], face3.fields[2,1], face4.fields[2,1]);
-            Move(output, face1.fields[2,2], face2.fields[2,2], face3.fields[2,2], face4.fields[2,2]);
-        }
-
-        private void F_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            Move(output, face1.fields[2,2], face2.fields[0,2], face3.fields[0,0], face4.fields[2,0]);
-            Move(output, face1.fields[2,1], face2.fields[1,2], face3.fields[0,1], face4.fields[1,0]);
-            Move(output, face1.fields[2,0], face2.fields[2,2], face3.fields[0,2], face4.fields[0,0]);
-        }
-
-        private void F_MoverPrime(List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            Move(output, face1.fields[2,2], face2.fields[2,0], face3.fields[0,0], face4.fields[0,2]);
-            Move(output, face1.fields[2,1], face2.fields[1,0], face3.fields[0,1], face4.fields[1,2]);
-            Move(output, face1.fields[2,0], face2.fields[0,0], face3.fields[0,2], face4.fields[2,2]);
-        }
-
-        private void B_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            Move(output, face1.fields[0,2], face2.fields[2,2], face3.fields[2,0], face4.fields[0,0]);
-            Move(output, face1.fields[0,1], face2.fields[1,2], face3.fields[2,1], face4.fields[1,0]);
-            Move(output, face1.fields[0,0], face2.fields[0,2], face3.fields[2,2], face4.fields[2,0]);
-        }
-
-        private void B_MoverPrime(List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            Move(output, face1.fields[0,2], face2.fields[0,0], face3.fields[2,0], face4.fields[2,2]);
-            Move(output, face1.fields[0,1], face2.fields[1,0], face3.fields[2,1], face4.fields[1,2]);
-            Move(output, face1.fields[0,0], face2.fields[2,0], face3.fields[2,2], face4.fields[0,2]);
+            for (int i=0; i<3; i++)
+                Move(output, face1.fields[j,2-i], face2.fields[Math.Abs(g+i),l-j], face3.fields[2-j,i], face4.fields[Math.Abs(h+i),n-j]);
         }
 
         private void MoveAllFieldsInTurningFace(List<Field> output, Face face)
