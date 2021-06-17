@@ -73,6 +73,12 @@ namespace Model
                     F_B_Mover(0, -2, 0, 0, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BACK]);
                     break;
+                case "M":
+                    M_Mover(output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    break;
+                case "M'":
+                    M_Mover(output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    break;
             }
 
             return output;
@@ -81,6 +87,12 @@ namespace Model
         public Color ColorCheck(F faceName, int x, int y)
         {
             return faces[faceName].fields[x,y].color;
+        }
+
+        private void M_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        {
+            for (int x=0; x<3; x++)
+                Move(output, face1.fields[x,1], face2.fields[x,1], face3.fields[2-x,1], face4.fields[x,1]);
         }
 
         private void R_L_Mover(int y, List<Field> output, Face face1, Face face2, Face face3, Face face4)
@@ -96,12 +108,6 @@ namespace Model
         }
 
         private void F_B_Mover(int g, int h, int j, int l, int n, List<Field> output, Face face1, Face face2, Face face3, Face face4)
-        {
-            for (int i=0; i<3; i++)
-                Move(output, face1.fields[j,2-i], face2.fields[Math.Abs(g+i),l-j], face3.fields[2-j,i], face4.fields[Math.Abs(h+i),n-j]);
-        }
-
-        private void B_Mover(int g, int h, int j, int l, int n, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
             for (int i=0; i<3; i++)
                 Move(output, face1.fields[j,2-i], face2.fields[Math.Abs(g+i),l-j], face3.fields[2-j,i], face4.fields[Math.Abs(h+i),n-j]);
