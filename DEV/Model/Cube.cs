@@ -33,11 +33,31 @@ namespace Model
                     R_L_M_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
                     break;
+                case "r":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    break;
+                case "r'":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
+                    break;
                 case "L":
                     R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
                     break;
                 case "L'":
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
+                    break;
+                case "l":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
+                    break;
+                case "l'":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
                     break;

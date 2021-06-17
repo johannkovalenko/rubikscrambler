@@ -8,14 +8,14 @@ namespace View
     {
         private Dictionary<F, Face> faces = new Dictionary<F, Face>();
 
-        public Cube(Form mainForm)
+        public Cube(Form mainForm, int len)
         {
-            faces[F.BOTTOM] = new Face(mainForm, 55, 110, Color.White);
-            faces[F.FRONT] = new Face(mainForm, 55, 55, Color.Blue);
-            faces[F.RIGHT] = new Face(mainForm, 110, 55, Color.Red);
-            faces[F.LEFT] = new Face(mainForm, 0, 55, Color.Orange);
-            faces[F.BACK] = new Face(mainForm, 165, 55, Color.Green);
-            faces[F.TOP] = new Face(mainForm, 55, 0, Color.Yellow);
+            faces[F.BOTTOM] =   new Face(mainForm, len * 4, len * 8, Color.White, len);
+            faces[F.FRONT] =    new Face(mainForm, len * 4, len * 4, Color.Blue, len);
+            faces[F.RIGHT] =    new Face(mainForm, len * 8, len * 4, Color.Red, len);
+            faces[F.LEFT] =     new Face(mainForm, len * 0, len * 4, Color.Orange, len);
+            faces[F.BACK] =     new Face(mainForm, len * 12, len * 4, Color.Green, len);
+            faces[F.TOP] =      new Face(mainForm, len * 4, len * 0, Color.Yellow, len);
         }
 
         public void Update(Model.Field field)

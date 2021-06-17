@@ -5,12 +5,12 @@ namespace View
 {
     public class Field : Label
     {
-        public Field(int xPos, int yPos, Color initialColor, int cnt)
+        public Field(int xPos, int yPos, Color initialColor, int len)
         {
             base.BackColor = initialColor;
-            base.Size = new Size(15, 15);
+            base.Size = new Size(len, len);
             base.Location = new Point(xPos, yPos);
-            //base.Text = "" + cnt;
+            base.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 }
