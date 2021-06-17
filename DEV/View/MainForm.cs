@@ -33,7 +33,8 @@ namespace View
             this.textBox.Location = new Point(10, 200);
             this.textBox.KeyDown += delegate(object sender, KeyEventArgs key) 
             { 
-                cubeMove.Run(key.KeyCode, textBox.Text); 
+                if (key.KeyCode == Keys.Space)
+                    cubeMove.Run(textBox.Text); 
             };
             base.Controls.Add(this.textBox);
         }

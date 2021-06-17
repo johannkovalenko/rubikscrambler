@@ -16,9 +16,9 @@ namespace Controller
         private Direction direction;
         private Mode mode;
 
-        public void Run(Keys keyCode, string textInTextBox)
+        public void Run(string textInTextBox)
         {
-            if (!SetDirectionAndMode(keyCode, textInTextBox))
+            if (!SetDirectionAndMode(textInTextBox))
                 return;
 
             List<Model.Field> fields = cube.Run(direction, mode);
@@ -28,34 +28,31 @@ namespace Controller
                 
         }
 
-        private bool SetDirectionAndMode(Keys keyCode, string textInTextBox)
+        private bool SetDirectionAndMode(string textInTextBox)
         {
-            if (keyCode == Keys.Space)
+            var split = textInTextBox.Split(' ');
+
+            switch (split[split.Length - 1])
             {
-                var split = textInTextBox.Split(' ');
-
-                switch (split[split.Length - 1])
-                {
-                    case "R":
-                        direction = Direction.R;
-                        mode = Mode.Standard;
-                        return true;
-                    case "R'":
-                        direction = Direction.R;
-                        mode = Mode.Prime;
-                        return true;
-                    case "U":
-                        direction = Direction.U;
-                        mode = Mode.Standard;
-                        return true;    
-                    case "U'":
-                        direction = Direction.U;
-                        mode = Mode.Prime;
-                        return true;                  
-                }
+                case "R":
+                    direction = Direction.R;
+                    mode = Mode.Standard;
+                    return true;
+                case "R'":
+                    direction = Direction.R;
+                    mode = Mode.Prime;
+                    return true;
+                case "U":
+                    direction = Direction.U;
+                    mode = Mode.Standard;
+                    return true;    
+                case "U'":
+                    direction = Direction.U;
+                    mode = Mode.Prime;
+                    return true;
+                default:
+                    return false;                  
             }
-
-            return false;
         }
     }
 }
