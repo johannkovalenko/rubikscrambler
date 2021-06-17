@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\DEV\\DEV.csproj": {}
+    "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj": {}
   },
   "projects": {
-    "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\DEV\\DEV.csproj": {
+    "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\DEV\\DEV.csproj",
-        "projectName": "DEV",
-        "projectPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\DEV\\DEV.csproj",
+        "projectUniqueName": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj",
+        "projectName": "dev",
+        "projectPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj",
         "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\DEV\\obj\\",
+        "outputPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",

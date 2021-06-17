@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net5.0-windows7.0": {
       "coverlet.collector/1.3.0": {
         "type": "package",
         "build": {
@@ -1634,6 +1634,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "dev/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/dev.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/dev.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -5706,14 +5719,20 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "dev/1.0.0": {
+      "type": "project",
+      "path": "../dev/dev.csproj",
+      "msbuildProject": "../dev/dev.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net5.0-windows7.0": [
       "MSTest.TestAdapter >= 2.1.1",
       "MSTest.TestFramework >= 2.1.1",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
-      "coverlet.collector >= 1.3.0"
+      "coverlet.collector >= 1.3.0",
+      "dev >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5722,27 +5741,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\TEST\\TEST.csproj",
+      "projectUniqueName": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\test\\TEST.csproj",
       "projectName": "TEST",
-      "projectPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\TEST\\TEST.csproj",
+      "projectPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\test\\TEST.csproj",
       "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\TEST\\obj\\",
+      "outputPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net5.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "projectReferences": {}
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj": {
+              "projectPath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\dev\\dev.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5752,8 +5775,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "dependencies": {
           "MSTest.TestAdapter": {
             "target": "Package",

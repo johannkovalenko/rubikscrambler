@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UggXWvvIxvFBhAmsc5uR0CjLpS74FJ1KHWOINxzD1BjokM6ey6HvbYgrX3lz2wk/anPgVsK+KH0UfFD6vVCxew==",
+  "dgSpecHash": "9MrR+Ou3ka60T8QAJJ2Sqa4g5NlKRxKWlmCRnX75aE0JT/kqDrKLFtOQEj8rqRdihQ9VH8x/Z/J6k1BQJVyAfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\TEST\\TEST.csproj",
+  "projectFilePath": "C:\\Users\\johan\\OneDrive\\Dokumente\\Programming\\C#\\rubikscrambler\\rubikscrambler\\test\\TEST.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johan\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\johan\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

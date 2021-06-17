@@ -18,6 +18,11 @@ namespace Model
             faces[F.TOP] = new Face(Color.Yellow, F.TOP);
         }
 
+        public Color ColorCheck(F faceName, int x, int y)
+        {
+            return faces[faceName].fields[x,y].color;
+        }
+
         private void R_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
             Move(output, face1.fields[0,2], face2.fields[0,2], face3.fields[2,0], face4.fields[0,2]);
