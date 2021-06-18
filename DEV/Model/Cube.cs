@@ -121,6 +121,12 @@ namespace Model
                     U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
                     break;
+                case "D2":
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
+                    break;
                 case "D'":
                     U_D_E_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BOTTOM]);
@@ -196,6 +202,12 @@ namespace Model
                     break;
                 case "B":
                     F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BACK]);
+                    break;
+                case "B2":
+                    F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BACK]);
                     MoveAllFieldsInTurningFace(output, faces[F.BACK]);
                     break;
                 case "B'":
