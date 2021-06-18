@@ -10,12 +10,14 @@ namespace View
 
         public Cube(Form mainForm, int len)
         {
-            faces[F.BOTTOM] =   new Face(mainForm, len * 4, len * 8, Color.White, len);
-            faces[F.FRONT] =    new Face(mainForm, len * 4, len * 4, Color.Blue, len);
-            faces[F.RIGHT] =    new Face(mainForm, len * 8, len * 4, Color.Red, len);
-            faces[F.LEFT] =     new Face(mainForm, len * 0, len * 4, Color.Orange, len);
-            faces[F.BACK] =     new Face(mainForm, len * 12, len * 4, Color.Green, len);
-            faces[F.TOP] =      new Face(mainForm, len * 4, len * 0, Color.Yellow, len);
+            int space = len + len/9; 
+
+            faces[F.BOTTOM] =   new Face(mainForm, space * 3, space * 6, Color.White, len);
+            faces[F.FRONT] =    new Face(mainForm, space * 3, space * 3, Color.Blue, len);
+            faces[F.RIGHT] =    new Face(mainForm, space * 6, space * 3, Color.Red, len);
+            faces[F.LEFT] =     new Face(mainForm, space * 0, space * 3, Color.Orange, len);
+            faces[F.BACK] =     new Face(mainForm, space * 9, space * 3, Color.Green, len);
+            faces[F.TOP] =      new Face(mainForm, space * 3, space * 0, Color.Yellow, len);
         }
 
         public void Update(Model.Field field)

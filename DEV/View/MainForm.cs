@@ -18,19 +18,19 @@ namespace View
 
         public MainForm()
         {
-            cube = new View.Cube(this, 45);
+            cube = new View.Cube(this, 90);
             cubeMove = new Controller.CubeMove(cube);
 
             TextBox();
 
-            base.Width = 900;
-            base.Height = 900;
+            base.Width = 1300;
+            base.Height = 1000;
             base.BackColor = Color.Gray;
         }
 
         private void TextBox()
         {
-            this.textBox.Location = new Point(350, 10);
+            this.textBox.Location = new Point(10, 10);
             this.textBox.Width = 300;
             this.textBox.KeyDown += delegate(object sender, KeyEventArgs key) 
             { 

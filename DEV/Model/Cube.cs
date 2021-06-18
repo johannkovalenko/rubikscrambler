@@ -33,9 +33,23 @@ namespace Model
                     R_L_M_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
                     break;
+                case "R2":
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    break;
                 case "r":
                     R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    break;
+                case "r2":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
                     break;
                 case "r'":
@@ -51,9 +65,23 @@ namespace Model
                     R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
                     break;
+                case "L2":
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
+                    break;
                 case "l":
                     R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
                     R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
+                    break;
+                case "l2":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
                     MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
                     break;
                 case "l'":
@@ -61,29 +89,110 @@ namespace Model
                     R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
                     break;
+                case "X":
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.RIGHT]);
+                    break;
+                case "X'":
+                    R_L_M_Mover(0, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(2, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    MoveAllFieldsInTurningFace(output, faces[F.LEFT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.RIGHT]);
+                    break;
                 case "U":
-                    U_D_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.TOP]);
+                    break;
+                case "U2":
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.TOP]);
                     MoveAllFieldsInTurningFace(output, faces[F.TOP]);
                     break;
                 case "U'":
-                    U_D_Mover(0, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.TOP]);
                     break;
                 case "D":
-                    U_D_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
                     break;
                 case "D'":
-                    U_D_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BOTTOM]);
+                    break;
+                case "d":
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
+                    break;
+                case "d'":
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.BOTTOM]);
+                    break;
+                case "Y'":
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.TOP]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BOTTOM]);
+
+                    break;
+                case "Y":
+                    U_D_E_Mover(0, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    U_D_E_Mover(2, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.TOP]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.BOTTOM]);
+                    break;
+                case "E":
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.LEFT], faces[F.BACK], faces[F.RIGHT]);
+                    break;
+                case "E'":
+                    U_D_E_Mover(1, output, faces[F.FRONT], faces[F.RIGHT], faces[F.BACK], faces[F.LEFT]);
                     break;
                 case "F":
                     F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
                     break;
+                case "F2":
+                    F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
+                    break;
                 case "F'":
                     F_B_Mover(-2, 0, 2, 2, 4, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.FRONT]);
+                    break;
+                case "f":
+                    F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    S_Mover(output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
+                    break;
+                case "f'":
+                    F_B_Mover(-2, 0, 2, 2, 4, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    S_MoverPrime(output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.FRONT]);
+                    break;
+                case "Z":
+                    F_B_Mover(0, -2, 2, 4, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    S_Mover(output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.FRONT]);
+                    F_B_Mover(0, -2, 0, 0, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.BACK]);
+                    break;
+                case "Z'":
+                    F_B_Mover(-2, 0, 2, 2, 4, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    S_MoverPrime(output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFaceCounter(output, faces[F.FRONT]);
+                    F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
+                    MoveAllFieldsInTurningFace(output, faces[F.BACK]);
                     break;
                 case "B":
                     F_B_Mover(-2, 0, 0, 2, 0, output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
@@ -93,11 +202,21 @@ namespace Model
                     F_B_Mover(0, -2, 0, 0, 2, output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
                     MoveAllFieldsInTurningFaceCounter(output, faces[F.BACK]);
                     break;
-                case "M":
+                case "M'":
                     R_L_M_Mover(1, output, faces[F.FRONT], faces[F.BOTTOM], faces[F.BACK], faces[F.TOP]);
                     break;
-                case "M'":
+                case "M2":
                     R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    break;
+                case "M":
+                    R_L_M_Mover(1, output, faces[F.FRONT], faces[F.TOP], faces[F.BACK], faces[F.BOTTOM]);
+                    break;
+                case "S":
+                    S_Mover(output, faces[F.TOP], faces[F.LEFT], faces[F.BOTTOM], faces[F.RIGHT]);
+                    break;
+                case "S'": 
+                    S_MoverPrime(output, faces[F.TOP], faces[F.RIGHT], faces[F.BOTTOM], faces[F.LEFT]);
                     break;
             }
 
@@ -115,7 +234,7 @@ namespace Model
                 Move(output, face1.fields[x,y], face2.fields[x,y], face3.fields[2-x,2-y], face4.fields[x,y]);
         }
 
-        private void U_D_Mover(int x, List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        private void U_D_E_Mover(int x, List<Field> output, Face face1, Face face2, Face face3, Face face4)
         {
             for (int y=0; y<3; y++)
                 Move(output, face1.fields[x,y], face2.fields[x,y], face3.fields[x,y], face4.fields[x,y]);
@@ -125,6 +244,19 @@ namespace Model
         {
             for (int i=0; i<3; i++)
                 Move(output, face1.fields[j,2-i], face2.fields[Math.Abs(g+i),l-j], face3.fields[2-j,i], face4.fields[Math.Abs(h+i),n-j]);
+        }
+
+        private void S_Mover(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        {
+            Move(output, face1.fields[1,0], face2.fields[2,1], face3.fields[1,2], face4.fields[0,1]);
+            Move(output, face1.fields[1,1], face2.fields[1,1], face3.fields[1,1], face4.fields[1,1]);
+            Move(output, face1.fields[1,2], face2.fields[0,1], face3.fields[1,0], face4.fields[2,1]);
+        }
+        private void S_MoverPrime(List<Field> output, Face face1, Face face2, Face face3, Face face4)
+        {
+            Move(output, face1.fields[1,0], face2.fields[0,1], face3.fields[1,2], face4.fields[2,1]);
+            Move(output, face1.fields[1,1], face2.fields[1,1], face3.fields[1,1], face4.fields[1,1]);
+            Move(output, face1.fields[1,2], face2.fields[2,1], face3.fields[1,0], face4.fields[0,1]);
         }
 
         private void MoveAllFieldsInTurningFace(List<Field> output, Face face)
