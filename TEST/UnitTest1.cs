@@ -81,5 +81,23 @@ namespace TEST
             Assert.AreEqual(Color.Green,      cube.ColorCheck(F.BOTTOM, 0, 1));
             Assert.AreEqual(Color.White,     cube.ColorCheck(F.BOTTOM, 1, 2));                   
         }
+
+        [TestMethod]
+        public void Perform_S_And_SPrime()
+        {
+            Model.Cube cube = new Model.Cube();
+
+            string[] moves = {"S", "R", "U", "R'", "U'", "S'", "R", "U", "R'", "U'"};
+
+            foreach (var move in moves)
+                cube.Run(move);
+
+            Assert.AreEqual(Color.Red,      cube.ColorCheck(F.TOP, 1, 0));
+            Assert.AreEqual(Color.Green,    cube.ColorCheck(F.RIGHT, 0, 1));
+            Assert.AreEqual(Color.Blue,     cube.ColorCheck(F.TOP, 2, 2));
+            Assert.AreEqual(Color.White,    cube.ColorCheck(F.FRONT, 2, 2));
+            Assert.AreEqual(Color.Orange,   cube.ColorCheck(F.LEFT, 0, 2));
+            Assert.AreEqual(Color.Yellow,   cube.ColorCheck(F.TOP, 0, 1));
+        }
     }
 }
