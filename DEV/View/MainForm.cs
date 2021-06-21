@@ -16,16 +16,20 @@ namespace View
         private readonly TextBox textBox = new TextBox();
         private readonly View.Cube cube;
         private readonly Controller.CubeMove cubeMove;
-        private readonly Button rButton = new Button();
-
+        
         public MainForm()
         {
             cube = new View.Cube(this, 90);
             cubeMove = new Controller.CubeMove(cube);
 
+            FormSettings();
             TextBox();
-            RButton();
+            BuildButtons();
 
+        }
+
+        private void FormSettings()
+        {
             base.Width = 1300;
             base.Height = 1000;
             base.BackColor = Color.Gray;
@@ -43,24 +47,20 @@ namespace View
             base.Controls.Add(this.textBox);
         }
 
-        private void RButton()
+        private void BuildButtons()
         {
-            rButton.Text = "R";
-            rButton.Size = new Size(50,50);
-            rButton.Location = new Point (50, 50);
-            
-            rButton.MouseDown += delegate(object sender, MouseEventArgs e) 
-            { 
-                if (e.Button == MouseButtons.Left)
-                    cubeMove.Run("R"); 
-                else if (e.Button == MouseButtons.Right)
-                    cubeMove.Run("R'"); 
-                else if (e.Button == MouseButtons.Middle)
-                    cubeMove.Run("R2");
-            };
-
-            base.Controls.Add(rButton);
+            new DirectionButton("R",  50,  50, cubeMove, this);
+            new DirectionButton("U", 100,  50, cubeMove, this);
+            new DirectionButton("F", 150,  50, cubeMove, this);
+            new DirectionButton("L",  50, 100, cubeMove, this);
+            new DirectionButton("D", 100, 100, cubeMove, this);
+            new DirectionButton("B", 150, 100, cubeMove, this);
+            new DirectionButton("M",  50, 150, cubeMove, this);
+            new DirectionButton("S", 100, 150, cubeMove, this);
+            new DirectionButton("E", 150, 150, cubeMove, this);
+            new DirectionButton("X",  50, 200, cubeMove, this);
+            new DirectionButton("Y", 100, 200, cubeMove, this);
+            new DirectionButton("Z", 150, 200, cubeMove, this);
         }
-
     }
 }
