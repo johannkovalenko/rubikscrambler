@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace View
 {
@@ -15,6 +16,7 @@ namespace View
         private readonly TextBox textBox = new TextBox();
         private readonly View.Cube cube;
         private readonly Controller.CubeMove cubeMove;
+        private readonly Button rButton = new Button();
 
         public MainForm()
         {
@@ -22,6 +24,7 @@ namespace View
             cubeMove = new Controller.CubeMove(cube);
 
             TextBox();
+            RButton();
 
             base.Width = 1300;
             base.Height = 1000;
@@ -39,5 +42,25 @@ namespace View
             };
             base.Controls.Add(this.textBox);
         }
+
+        private void RButton()
+        {
+            rButton.Text = "R";
+            rButton.Size = new Size(50,50);
+            rButton.Location = new Point (50, 50);
+            
+            rButton.MouseDown += delegate(object sender, MouseEventArgs e) 
+            { 
+                if (e.Button == MouseButtons.Left)
+                    cubeMove.Run("R"); 
+                else if (e.Button == MouseButtons.Right)
+                    cubeMove.Run("R'"); 
+                else if (e.Button == MouseButtons.Middle)
+                    cubeMove.Run("R2");
+            };
+
+            base.Controls.Add(rButton);
+        }
+
     }
 }
